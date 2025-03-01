@@ -8,7 +8,7 @@ const Contact = () => {
         Contact <span className='underline underline-offset-4 decoration-1 font-light'>Our Team</span>
       </h1>
       <p className='text-center text-gray-500 mb-12 max-w-80 mx-auto'>
-        Real stories from our satisfied customers.
+        Keep in touch with us. We are always here to help you.
       </p>
 
       {/* Form */}
