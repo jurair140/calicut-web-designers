@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const AboutPage = () => {
   return (
@@ -13,7 +14,12 @@ const AboutPage = () => {
     <p className='text-gray-500 max-w-80 text-center mb-8'>Leading Website Development Company</p>      
         <div className='flex flex-col md:flex-row items-center md:items-start md:gap-20'>
             <img src="https://calicutwebdesigners.com/site_assets/img/about/about-v02.png" className='w-full  max-w-lg' alt="" />
-            <div className='flex flex-col items-center md:items-start mt-10 text-gray-600'>
+            <motion.div
+                            initial ={{opacity:0 , x:200}}
+                            transition={{duration:1}}
+                            whileInView={{opacity:1, x:0}}
+                            viewport={{once:true}}
+            className='flex flex-col items-center md:items-start mt-10 text-gray-600'>
                 <div className='grid grid-cols-2 gap-6 md:gap-10 w-full 2xl:pr-28'>
                     <div>
                         <p className='text-4xl font-medium text-gray-800'>1000+</p>
@@ -37,7 +43,7 @@ const AboutPage = () => {
                 Welcome to Calicut web designers, where innovation meets excellence in web development. Our mission is to deliver top-notch website solutions tailored to your business needs. With a team of expert developers, we specialize in creating responsive, user-friendly websites that drive results.
                 </p>
 
-            </div>
+            </motion.div>
         </div>
         
 
@@ -70,7 +76,12 @@ const AboutPage = () => {
 
         <div className='w-full'>
              <h4 className='text-center text-4xl font-bold'>Meet our creative staff </h4>
-             <div className='flex flex-wrap m-20 justify-around '>
+             <motion.div
+                     initial ={{opacity:0 , x:-200}}
+                     transition={{duration:1}}
+                     whileInView={{opacity:1, x:0}}
+                     viewport={{once:true}}
+             className='flex flex-wrap m-20 justify-around '>
                 <div className='mb-10'>
                     <img src="https://calicutwebdesigners.com/site_assets/img/team/rd1.png" alt="" />
                     <h2 className='text-2xl font-bold text-center mt-3'>Esther Howard</h2>
@@ -119,7 +130,7 @@ const AboutPage = () => {
                     </div>
                 </div>
 
-             </div>
+             </motion.div>
 
         
         

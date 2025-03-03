@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavBar from '../components/NavBar';
+import { motion } from 'framer-motion';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -53,7 +54,12 @@ const ContactPage = () => {
 
 
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center mb-12">
+        <motion.div
+                initial ={{opacity:0 , x:-200}}
+                transition={{duration:1}}
+                whileInView={{opacity:1, x:0}}
+                viewport={{once:true}}
+             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center mb-12">
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <Phone size={32} className="mx-auto text-blue-600" />
             <h3 className="text-lg font-semibold mt-4">Phone & Fax</h3>
@@ -77,7 +83,7 @@ const ContactPage = () => {
             <h3 className="text-lg font-semibold mt-4">Office Hours</h3>
             <p className="text-gray-600 mt-2">Sun - Sat: 09 AM - 06 PM</p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Contact Form */}
 

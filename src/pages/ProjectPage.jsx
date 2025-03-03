@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
+import { motion } from 'framer-motion';
 
 const projects = [
   { name: "Urban Cab Service", img: "https://calicutwebdesigners.com/site_assets/img/case/study-grid1.png", link: "#" },
@@ -29,7 +30,12 @@ const ProjectPage = () => {
           Specializing in creating stunning, user-friendly websites that drive business growth.
         </p>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20'>
+        <motion.div
+                    initial ={{opacity:0 , x:200}}
+                    transition={{duration:1}}
+                    whileInView={{opacity:1, x:0}}
+                    viewport={{once:true}}
+        className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20'>
           {projects.map((project, index) => (
             <div 
               key={index} 
@@ -55,7 +61,7 @@ const ProjectPage = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
         
       </div>
     </div>
