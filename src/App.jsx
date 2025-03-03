@@ -8,6 +8,8 @@ import ServicePage from './pages/ServicePage'
 import ProjectPage from './pages/ProjectPage'
 import TrustedClients from "./pages/TrustedClients"; 
 import ContactPage from './pages/ContactPage'
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function App() {
 
@@ -26,6 +28,10 @@ function App() {
       </Routes>
 
     <Footer/>
+
+    <ToastContainer />
+
+
     </div>
    
     </>
