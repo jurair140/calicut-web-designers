@@ -1,5 +1,7 @@
 import React from 'react'
 import NavBar from './NavBar'
+import { Link } from 'react-router-dom'
+
 
 const Header = () => {
   return (
@@ -15,8 +17,8 @@ const Header = () => {
         </h2>
         <p className='text-center  text-semibold text-white drop-shadow-[2px_2px_0_black]'>Calicut Web Designers is a leading web design company based in Calicut, <br /> specializing in creating stunning, user-friendly websites <br /> that drive business growth.</p>
         <div className='space-x-6 mt-16'>
-            <a href="#Projects" className='border border-white px-8 py-3 rounded'>Projects</a>
-            <a href="#Contact" className='border border-white px-8 py-3 rounded bg-yellow-500'>Contact Us</a>
+          <Link to={'/projects'}>  <a href="" className='border border-white px-8 py-3 rounded'>Projects</a></Link>
+          <Link to={'/contact'}>  <a href="" className='border border-white px-8 py-3 rounded bg-yellow-500'>Contact Us</a> </Link>
         </div>
       </div>
     </div>

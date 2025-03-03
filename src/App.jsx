@@ -1,13 +1,13 @@
-import { useState } from 'react'
 
 import './App.css'
-import Header from './components/Header'
-import About from './components/About'
-import Projects from './components/Projects'
-import Testimoniels from './components/Testimoniels'
-import Services from './components/Services'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { Routes,Route } from 'react-router-dom'
+import Home from './pages/Home'
+import AboutPage from './pages/AboutPage'
+import ServicePage from './pages/ServicePage'
+import ProjectPage from './pages/ProjectPage'
+import TrustedClients from "./pages/TrustedClients"; 
+import ContactPage from './pages/ContactPage'
 
 function App() {
 
@@ -15,12 +15,16 @@ function App() {
     <>
     
     <div className="w-full overflow-hidden">
-    <Header/>
-    <About/>
-    <Projects/>
-    <Services/>
-    <Testimoniels/>
-    <Contact/>
+      
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/aboutus" element={<AboutPage />} />
+        <Route path='/service' element={<ServicePage/>}  />
+        <Route path='/projects' element={<ProjectPage/>}/>
+        <Route path="/clients" element={<TrustedClients />} /> 
+        <Route path='/contact' element={<ContactPage/>}/>
+      </Routes>
+
     <Footer/>
     </div>
    

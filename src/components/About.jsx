@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const About = () => {
   return (
@@ -31,7 +32,7 @@ const About = () => {
                 <p className='my-10 max-w-lg'>
                 Welcome to Calicut web designers, where innovation meets excellence in web development. Our mission is to deliver top-notch website solutions tailored to your business needs. With a team of expert developers, we specialize in creating responsive, user-friendly websites that drive results.
                 </p>
-                <button className='bg-blue-600 text-white px-8 py-2 rounded'>Learn more</button>
+                <button className='bg-blue-600 text-white px-8 py-2 rounded'><Link to={'/aboutus'}> Learn more </Link></button>
 
             </div>
         </div>
