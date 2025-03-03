@@ -16,7 +16,7 @@ const Contact = () => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
       if (!nameRegex.test(name)) {
-        toast.error('Name should contain only alphabets.');
+        toast.error('invalid name.');
         return false;
       }
       if (!emailRegex.test(email)) {
