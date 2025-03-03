@@ -1,9 +1,15 @@
 import { Star } from 'lucide-react'
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const Testimoniels = () => {
   return (
-    <div className='container mx-auto py-10 lg:px-32 w-full overflow-hidden bg-gray-100' id='Testimonials'>
+    <motion.div
+        initial ={{opacity:0 , x:-300}}
+        transition={{duration:1}}
+        whileInView={{opacity:1, x:0}}
+        viewport={{once:true}}
+     className='container mx-auto py-10 lg:px-32 w-full overflow-hidden bg-gray-100' id='Testimonials'>
         <h1 className='text-2xl sm:text-4xl font-bold mb-2 text-center'>
             Customer <span className='underline underline-offset-4 decoration-1 under font-light'>Testimonieals</span>
         </h1>
@@ -84,7 +90,7 @@ const Testimoniels = () => {
 
 
       
-    </div>
+    </motion.div>
   )
 }
 

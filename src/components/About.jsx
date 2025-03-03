@@ -1,9 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { motion } from 'framer-motion'
 const About = () => {
   return (
-    <div className='flex flex-col items-center justify-center  container mx-auto p-14 md:px-32 w-full overflow-hidden bg-gray-100' id='About'>
+    <motion.div 
+    initial ={{opacity:0 , x:200}}
+      transition={{duration:1}}
+      whileInView={{opacity:1, x:0}}
+      viewport={{once:true}}
+    className='flex flex-col items-center justify-center  container mx-auto p-14 md:px-32 w-full overflow-hidden bg-gray-100' id='About'>
         <h1 className='text-2xl sm:text-4xl font-bold mb-2 '>About <span className='underline underline-ofset-4 decoration-1 under font-light'>Our Company</span></h1>
 
     <p className='text-gray-500 max-w-80 text-center mb-8'>Leading Website Development Company</p>      
@@ -36,7 +41,7 @@ const About = () => {
 
             </div>
         </div>
-    </div>
+    </motion.div>
 
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from './NavBar'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 
 const Header = () => {
@@ -11,7 +12,13 @@ const Header = () => {
         
       }} id='Header'>
       <NavBar/>
-      <div className='container text-center mx-auto py-4 px-6 md:px-20 lg:px-32 text-white '>
+      <motion.div
+      initial ={{opacity:0 , y:100}}
+      transition={{duration:1.5}}
+      whileInView={{opacity:1, y:0}}
+      viewport={{once:true}}
+
+      className='container text-center mx-auto py-4 px-6 md:px-20 lg:px-32 text-white '>
         <h2 className='text-5xl sm:text-6xl md:text-[82px] inline-block max-w-3xl font-bold text-white drop-shadow-[2px_2px_0_black]'>
          WE ARE CREATIVE WEB DESIHNERS
         </h2>
@@ -20,7 +27,7 @@ const Header = () => {
           <Link to={'/projects'}>  <a href="" className='border border-white px-8 py-3 rounded'>Projects</a></Link>
           <Link to={'/contact'}>  <a href="" className='border border-white px-8 py-3 rounded bg-yellow-500'>Contact Us</a> </Link>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

@@ -1,13 +1,19 @@
 import { ArrowUpRight, ChevronsLeft, ChevronsRight, Link } from 'lucide-react'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const Projects = () => {
 
     const nav = useNavigate()
 
   return (
-    <div className='container  py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden bg-gray-100' id='Projects'>
+    <motion.div
+        initial ={{opacity:0 , x:200}}
+        transition={{duration:1}}
+        whileInView={{opacity:1, x:0}}
+        viewport={{once:true}}
+    className='container  py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden bg-gray-100' id='Projects'>
       <h1 className='text-2xl sm:text-4xl font-bold mb-2 text-center'>Projects <span className='underline underline-offset-4 decoration-1 under font-light'>Completed</span></h1>
       <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'> specializing in creating stunning, user-friendly websites that drive business growth</p>
 
@@ -94,7 +100,7 @@ const Projects = () => {
      
 
 
-    </div>
+    </motion.div>
   )
 }
 
