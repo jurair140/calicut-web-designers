@@ -15,37 +15,40 @@ const AboutPage = () => {
           Leading Website Development Company
         </p>
 
-        <div className='flex flex-col md:flex-row items-center gap-12'>
-          <img
-            src='https://calicutwebdesigners.com/site_assets/img/about/about-v02.png'
-            className='w-full max-w-lg rounded-lg shadow-lg'
-            alt='About Us'
-          />
-          <motion.div
-            initial={{ opacity: 0, x: 200 }}
-            transition={{ duration: 1 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className='flex flex-col items-center md:items-start text-gray-600'
-          >
-            <div className='grid grid-cols-2 gap-8 w-full'>
-              {[
-                { number: '1000+', label: 'Happy Clients' },
-                { number: '25K+', label: 'Completed Projects' },
-                { number: '10K+', label: 'Service Providing' },
-                { number: '100+', label: 'Experts Support' },
-              ].map((item, index) => (
-                <div key={index} className='text-center md:text-left'>
-                  <p className='text-4xl font-medium text-gray-800'>{item.number}</p>
-                  <p>{item.label}</p>
+        <div className="flex flex-col lg:flex-row items-center gap-10 px-6 sm:px-12 md:px-20 lg:px-32">
+              <img
+                src="https://calicutwebdesigners.com/site_assets/img/about/about-v02.png"
+                className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[60%] lg:max-w-[45%] xl:max-w-[40%] rounded-lg shadow-lg"
+                alt="About Us"
+              />
+
+              <motion.div
+                initial={{ opacity: 0, x: 200 }}
+                transition={{ duration: 1 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center lg:items-start text-gray-600 text-center lg:text-left"
+              >
+                <div className="grid grid-cols-2 gap-6 sm:gap-8 w-full">
+                  {[
+                    { number: "1000+", label: "Happy Clients" },
+                    { number: "25K+", label: "Completed Projects" },
+                    { number: "10K+", label: "Service Providing" },
+                    { number: "100+", label: "Experts Support" },
+                  ].map((item, index) => (
+                    <div key={index} className="text-center lg:text-left">
+                      <p className="text-3xl sm:text-4xl font-medium text-gray-800">{item.number}</p>
+                      <p className="text-sm sm:text-base">{item.label}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+                <p className="mt-6 max-w-lg text-center lg:text-left leading-relaxed">
+                  Welcome to Calicut Web Designers, where innovation meets excellence in web development.
+                  Our mission is to deliver top-notch website solutions tailored to your business needs.
+                </p>
+              </motion.div>
             </div>
-            <p className='my-10 max-w-lg text-center md:text-left'>
-              Welcome to Calicut Web Designers, where innovation meets excellence in web development. Our mission is to deliver top-notch website solutions tailored to your business needs.
-            </p>
-          </motion.div>
-        </div>
+
       </div>
 
       <div className='my-20 w-full px-5 md:px-20'>
