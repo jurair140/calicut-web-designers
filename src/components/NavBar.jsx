@@ -30,7 +30,7 @@ const NavBar = () => {
                 <a href="" className='cursor-pointer hover:text-gray-400'><Link to={'/clients'}>Our Clients</Link></a>
                 <a href="" className='cursor-pointer hover:text-gray-400'><Link to={'/contact'}>Contact Us</Link></a>
             </ul>
-            <button className='hidden md:block bg-white px-8 py-2 rounded-full'><Search/></button>
+            {/* <button className='hidden md:block bg-white px-8 py-2 rounded-full'><Search/></button> */}
              <Menu size={40} className='text-white md:hidden cursor-pointer' onClick={() => setShowMenu(true)} />
              
         </div>
