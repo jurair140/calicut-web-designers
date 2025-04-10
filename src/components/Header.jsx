@@ -2,28 +2,24 @@ import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 import { Link } from 'react-router-dom';
 
-import hero1 from '../assets/photo-1.jpg';
-import hero2 from '../assets/photo-3.jpg';
-import hero3 from '../assets/photo-4.jpg';
+// Import the video from the assets folder
+import backgroundVideo from '../assets/background-video.mp4'; // Adjust the extension if needed (e.g., .mp4)
 
 const slides = [
   {
     id: 1,
-    image: hero1,
     title: 'UNLEASH THE BEAST WITHIN',
     description:
       'Join Belly Gym and take your fitness to the next level. Strength, endurance, and transformation — all under one roof.',
   },
   {
     id: 2,
-    image: hero2,
     title: 'TRANSFORM YOUR BODY, TRANSFORM YOUR LIFE',
     description:
       'From beginners to pros, our personalized training and top-notch equipment help you become your best self.',
   },
   {
     id: 3,
-    image: hero3,
     title: 'STRONGER EVERYDAY AT BELLY GYM',
     description:
       'Push your limits with expert trainers, intense workouts, and the motivation you need to keep going.',
@@ -36,24 +32,23 @@ const Header = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 5000); // change slide every 5 sec
+    }, 5000); // Change text every 5 seconds
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden" id="Header">
-      {/* Background Slides */}
-      <div className="absolute inset-0">
-        {slides.map((slide, i) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-              i === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
-            }`}
-            style={{ backgroundImage: `url(${slide.image})` }}
-          />
-        ))}
-      </div>
+    <div className="relative min-h-screen w-full overflow-hidden " id="Header">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full sm:h-full object-cover z-0 h-screen"
+      >
+        <source src={backgroundVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
       {/* NavBar Always on Top */}
       <div className="relative z-30">
@@ -72,11 +67,6 @@ const Header = () => {
           <Link to={'/membership'}>
             <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-3 rounded font-semibold shadow-md transition">
               Join Now
-            </button>
-          </Link>
-          <Link to={'/'}>
-            <button className="border border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-black transition">
-              Book Free Trial
             </button>
           </Link>
         </div>

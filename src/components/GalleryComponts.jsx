@@ -22,7 +22,7 @@ const GalleryComponent = () => {
     <div className="bg-black py-16 px-6 md:px-16 lg:px-32 text-white">
       <h2 className="text-3xl sm:text-4xl font-bold text-center text-yellow-400 mb-10">Gallery Highlights</h2>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4">
+      <div className="grid  sm:grid-cols-2 md:grid-cols-3 gap-4">
         {images.slice(0, 6).map((img, i) => (
           <img
             key={i}
@@ -61,7 +61,7 @@ const GalleryComponent = () => {
         </a>
       </div>
 
-      <div className="mt-16">
+      {/* <div className="mt-16">
         <h3 className="text-2xl font-bold text-center mb-6 text-yellow-400">Our Clients on Instagram</h3>
        
         <div className="flex flex-col md:flex-row justify-center items-center gap-8 ">
@@ -92,9 +92,9 @@ const GalleryComponent = () => {
                 ></iframe>
             </div>
   
-        </div>
+        </div> */}
 
-      </div>
+      {/* </div> */}
     </div>
   );
 };

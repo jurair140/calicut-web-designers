@@ -20,7 +20,7 @@ const NavBar = () => {
     <div className='fixed top-0 left-0 w-full z-30'>
       <div className='flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 bg-black/60 backdrop-blur-md'>
         <img
-          src='https://calicutwebdesigners.com/site_assets/img/logo/logo.png'
+          src='https://lumea.in/belly6/assets/images/logo-white.png'
           className='w-32 sm:w-40'
           alt='Logo'
         />

@@ -1,54 +1,61 @@
-import { Brush, Database, Laptop, Phone, ShoppingCart, Smartphone } from 'lucide-react'
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from 'react';
+import { Dumbbell, Users, ShieldCheck, CalendarCheck, Wind } from 'lucide-react';
+
+const features = [
+  {
+    title: 'State-of-the-Art Equipment',
+    icon: <Dumbbell className="w-10 h-10 text-yellow-400" />,
+    description:
+      'We use branded cardio, fitness & strength machines that are hygienically maintained and regularly serviced. No waiting—just workout.',
+  },
+  {
+    title: 'Designed for Men & Women',
+    icon: <Users className="w-10 h-10 text-yellow-400" />,
+    description:
+      'Trainers tailor workouts based on your medical status, body type, and fitness level. Machines & routines fit both men and women perfectly.',
+  },
+  {
+    title: 'Premium Amenities',
+    icon: <Wind className="w-10 h-10 text-yellow-400" />,
+    description:
+      'Air-conditioned gym with an ozone generator for clean airflow. Includes washrooms & dressing rooms for comfort and convenience.',
+  },
+  {
+    title: 'Certified Trainers',
+    icon: <ShieldCheck className="w-10 h-10 text-yellow-400" />,
+    description:
+      'Our trainers are certified experts who offer safe, effective, and motivating guidance to help you reach your fitness goals.',
+  },
+  {
+    title: 'Flexible Membership Plans',
+    icon: <CalendarCheck className="w-10 h-10 text-yellow-400" />,
+    description:
+      'Choose from a range of membership options to suit your schedule and budget — daily, monthly, quarterly, or annual plans available.',
+  },
+];
 
 const Services = () => {
   return (
-    <motion.div 
-      initial ={{opacity:0 , x:-200}}
-      transition={{duration:1}}
-      whileInView={{opacity:1, x:0}}
-      viewport={{once:true}}
-    className='container  py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-hidden bg-gray-100 pb-20' id='Service'>
-         <h1 className='text-2xl sm:text-4xl font-bold mb-2 text-center'>Our<span className='underline underline-offset-4 decoration-1 under font-light'>Services</span></h1>
-      <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'> specializing in creating stunning, user-friendly websites that drive business growth</p>
-
-
-      <div className='flex p-5 flex-wrap justify-around'>
-        <div className=' shadow-2xl bg-white max-w-50 rounded p-10 mb-3 hover:bg-amber-500 transition-colors duration-300'>
-        <Brush size={40} color="#343432" className='mx-auto'/>
-            <h3 className='text-xl font-bol'>Web Design </h3>
-        </div>
-
-        <div className=' shadow-2xl bg-white max-w-50 rounded p-10 mb-3 hover:bg-amber-500'>
-        <Database size={40} color="#343432" className='mx-auto'/>
-            <h3 className='text-xl font-bol'>Web Development</h3>
-        </div>
-
-        <div className=' shadow-2xl bg-white max-w-50 rounded p-10 mb-3 hover:bg-amber-500'>
-        <Laptop size={40} color="#343432" className='mx-auto'/>
-            <h3 className='text-xl font-bol'>Wordpress Websites </h3>
-        </div>
-
-        <div className=' shadow-2xl bg-white max-w-50 rounded p-10 mb-3 hover:bg-amber-500'>
-        <Smartphone size={40} color="#343432" className='mx-auto'/>
-            <h3 className='text-xl font-bol'>Mobile App Development</h3>
-        </div>
-
-        <div className=' shadow-2xl bg-white max-w-50 rounded p-10 mb-3 hover:bg-amber-500'>
-        <ShoppingCart size={40} color="#343432" className='mx-auto'/>
-            <h3 className='text-xl font-bol'>Ecommerce Application </h3>
-        </div>
-
-       
-
-        
-
+    <div className="bg-black py-20 px-6 text-white">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center text-yellow-400 mb-12">
+        Elite Features
+      </h2>
+      <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 px-6 md:px-16 lg:px-32">
+        {features.map((feature, idx) => (
+          <div
+            key={idx}
+            className="bg-white/5 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 border border-yellow-400/20"
+          >
+            <div className="mb-4 flex justify-center">{feature.icon}</div>
+            <h3 className="text-xl font-semibold text-yellow-300 text-center mb-2">
+              {feature.title}
+            </h3>
+            <p className="text-sm text-center text-gray-300">{feature.description}</p>
+          </div>
+        ))}
       </div>
+    </div>
+  );
+};
 
-      
-    </motion.div>
-  )
-}
-
-export default Services
+export default Services;

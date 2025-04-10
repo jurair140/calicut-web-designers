@@ -10,19 +10,22 @@ import OurBenefits from '../components/OurBenefits'
 import GymTiming from '../components/GymTiming'
 import GalleryComponent from '../components/GalleryComponts'
 import Footer from '../components/Footer'
+import TrainersSection from '../components/TrainersSection '
 
 const Home = () => {
   return (
     <div>
       {/* <NavBar/> */}
       <Header/>
+      <About/>
+
       <OurBenefits/>
+
       <GymTiming/>
       <Testimoniels/>
       <GalleryComponent/>
-      
-      {/* <About/> */}
-      {/* <Services/> */}
+      <Services/>
+      <TrainersSection/>
       {/* <Projects/> */}
       {/* <Contact/> */}
     </div>
