@@ -19,7 +19,7 @@ const Footer = () => {
 
           <div>
             <h3 className="text-xl font-semibold mb-3">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 ">
              
               <Link to='/' onClick={() => setShowMenu(false)}><li className="text-gray-400 hover:text-white transition">Home</li></Link>
               <Link to='/aboutus' onClick={() => setShowMenu(false)}><li className="text-gray-400 hover:text-white transition">About Us</li></Link>
@@ -33,7 +33,7 @@ const Footer = () => {
          
 
           <div>
-            <h3 className="text-xl font-semibold mb-3">Corporate Office</h3>
+            <h3 className="text-xl font-semibold mb-3">Location</h3>
             <p className="text-gray-400">📍 1st Floor, Sreedhar Building, Above Elite Automobiles,</p>
             <p className="text-gray-400">East Nadakkavu, Kozhikode, Kerala</p>
             <p className="text-gray-400">📞 +91 984609 2222</p>

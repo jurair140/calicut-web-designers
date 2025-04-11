@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import photo14 from '../assets/photo-13.jpg';
 import Video1 from '../assets/video-1.mp4';
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -78,9 +79,10 @@ const About = () => {
           ))}
         </div>
 
-        <button className="bg-yellow-400 text-black font-bold px-6 py-2 rounded hover:bg-yellow-500 transition w-fit">
-          Get Started
+       <Link to={"/aboutus"}><button className="bg-yellow-400 text-black font-bold px-6 py-2 rounded hover:bg-yellow-500 transition w-fit">
+          More about us
         </button>
+        </Link>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 function GalleryComponts() {
   const [expandedIndex, setExpandedIndex] = useState(0);
@@ -83,9 +84,10 @@ function GalleryComponts() {
 
         {/* View More Button */}
         <div className="mt-8">
-          <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition">
+         <Link to={'/gallery'}><button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition">
             View More
           </button>
+          </Link> 
         </div>
       </div>
 

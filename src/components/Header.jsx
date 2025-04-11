@@ -64,7 +64,7 @@ const Header = () => {
           {slides[index].description}
         </p>
         <div className="space-x-6 mt-12">
-          <Link to={'/membership'}>
+          <Link to={'/contact'}>
             <button className="bg-yellow-500 hover:bg-yellow-600 text-black px-8 py-3 rounded font-semibold shadow-md transition">
               Join Now
             </button>
