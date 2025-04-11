@@ -28,9 +28,9 @@ const NavBar = () => {
           <Link to='/'><li className='hover:text-yellow-400'>Home</li></Link>
           <Link to='/aboutus'><li className='hover:text-yellow-400'>About Us</li></Link>
           <Link to='/gallery'><li className='hover:text-yellow-400'>Gallery</li></Link>
-          <Link to='/'><li className='hover:text-yellow-400'>Fecilities</li></Link>
-          <Link to='/'><li className='hover:text-yellow-400'>Testimonials</li></Link>
-          <Link to='/'><li className='hover:text-yellow-400'>Contact Us</li></Link>
+          <Link to='/advisoryboard'><li className='hover:text-yellow-400'>Advisory Board</li></Link>
+          <Link to='/clients'><li className='hover:text-yellow-400'>Testimonials</li></Link>
+          <Link to='/contact'><li className='hover:text-yellow-400'>Contact Us</li></Link>
         </ul>
         <Menu size={34} className='text-white md:hidden cursor-pointer' onClick={() => setShowMenu(true)} />
       </div>
@@ -47,9 +47,9 @@ const NavBar = () => {
         <ul className='flex flex-col items-center gap-6 mt-6 text-xl font-semibold'>
           <Link to='/' onClick={() => setShowMenu(false)}><li>Home</li></Link>
           <Link to='/aboutus' onClick={() => setShowMenu(false)}><li>About Us</li></Link>
-          <Link to='/service' onClick={() => setShowMenu(false)}><li>Service</li></Link>
-          <Link to='/projects' onClick={() => setShowMenu(false)}><li>Projects</li></Link>
-          <Link to='/clients' onClick={() => setShowMenu(false)}><li>Our Clients</li></Link>
+          <Link to='/gallery' onClick={() => setShowMenu(false)}><li>Gallery</li></Link>
+          <Link to='/advisoryboard' onClick={() => setShowMenu(false)}><li>Advisory Board</li></Link>
+          <Link to='/clients' onClick={() => setShowMenu(false)}><li>Testimonials</li></Link>
           <Link to='/contact' onClick={() => setShowMenu(false)}><li>Contact Us</li></Link>
         </ul>
       </div>

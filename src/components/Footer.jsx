@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -19,10 +20,13 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-3">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition">About</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Our Services</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Our Blogs</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Contact Us</a></li>
+             
+              <Link to='/' onClick={() => setShowMenu(false)}><li className="text-gray-400 hover:text-white transition">Home</li></Link>
+              <Link to='/aboutus' onClick={() => setShowMenu(false)}><li className="text-gray-400 hover:text-white transition">About Us</li></Link>
+              <Link to='/gallery' onClick={() => setShowMenu(false)}><li className="text-gray-400 hover:text-white transition">Gallery</li></Link>
+              <Link to='/advisoryboard' onClick={() => setShowMenu(false)}><li className="text-gray-400 hover:text-white transition">Advisory Board</li></Link>
+              <Link to='/clients' onClick={() => setShowMenu(false)}><li className="text-gray-400 hover:text-white transition"> Testimonials</li></Link>
+              <Link to='/contact' onClick={() => setShowMenu(false)}><li className="text-gray-400 hover:text-white transition">Contact Us</li></Link>
             </ul>
           </div>
 
@@ -45,7 +49,7 @@ const Footer = () => {
         </div>
 
         <div className="text-center text-gray-500 text-sm mt-8 border-t border-gray-700 pt-4">
-          © {new Date().getFullYear()} The Belly Gym. All Rights Reserved.
+          © {new Date().getFullYear()} All Rights Reserved. | <a href="https://www.calicutwebdesigners.com"   target="_blank" className='hover:text-amber-600'>Designed by Calicut Web Designers</a>
         </div>
       </div>
     </footer>
