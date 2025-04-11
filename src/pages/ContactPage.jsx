@@ -51,7 +51,7 @@ const ContactPage = () => {
                 className="w-full h-full object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                <h1 className="text-3xl md:text-5xl font-bold text-yellow-400">Testimonials</h1>
+                <h1 className="text-3xl md:text-5xl font-bold text-yellow-400">Contact Us</h1>
               </div>
             </div>
       
@@ -74,7 +74,7 @@ const ContactPage = () => {
           <div className="bg-white text-black p-6 rounded-xl shadow-lg">
             <Phone size={32} className="mx-auto text-yellow-500" />
             <h3 className="text-lg font-semibold mt-4">Call Us</h3>
-            <p className="text-gray-700 mt-2 font-medium">+91 9207 207 000</p>
+            <p className="text-gray-700 mt-2 font-medium">+91 984609 2222</p>
           </div>
           <div className="bg-white text-black p-6 rounded-xl shadow-lg">
             <Mail size={32} className="mx-auto text-yellow-500" />
@@ -84,12 +84,14 @@ const ContactPage = () => {
           <div className="bg-white text-black p-6 rounded-xl shadow-lg">
             <MapPin size={32} className="mx-auto text-yellow-500" />
             <h3 className="text-lg font-semibold mt-4">Location</h3>
-            <p className="text-gray-700 mt-2 font-medium">Indo Arcade, Near Beach, Calicut</p>
+            <p className="text-gray-700 mt-2 font-medium"> 1st Floor, Sreedhar Building, Above Elite Automobiles,East Nadakkavu, Kozhikode, Kerala</p>
           </div>
           <div className="bg-white text-black p-6 rounded-xl shadow-lg">
             <Clock size={32} className="mx-auto text-yellow-500" />
             <h3 className="text-lg font-semibold mt-4">Timings</h3>
-            <p className="text-gray-700 mt-2 font-medium">Sun - Sat: 6 AM - 10 PM</p>
+            <p className="text-gray-700 mt-2 font-medium">Mon - Fri : 7:00 - 21:00</p>
+            <p className="text-gray-700 mt-2 font-medium">Sat : 7:00 - 16:00</p>
+            <p className="text-gray-700 mt-2 font-medium">Sunday Closed</p>
           </div>
         </motion.div>
 

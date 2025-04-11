@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
 
         <div className="text-center text-gray-500 text-sm mt-8 border-t border-gray-700 pt-4">
-          © {new Date().getFullYear()} All Rights Reserved. | <a href="https://www.calicutwebdesigners.com"   target="_blank" className='hover:text-amber-600'>Designed by Calicut Web Designers</a>
+          © {new Date().getFullYear()} All Rights Reserved. | Designed and developed by<a href="https://www.calicutwebdesigners.com"   target="_blank" className='hover:text-amber-600'> Calicut Web Designers</a>
         </div>
       </div>
     </footer>
