@@ -1,102 +1,107 @@
-import React, { useState } from 'react';
-import photo1 from '../assets/photo-1.jpg';
-import photo2 from '../assets/photo-2.jpg';
-import photo3 from '../assets/photo-3.jpg';
-import photo4 from '../assets/photo-4.jpg';
-import photo5 from '../assets/photo-5.jpg';
-import photo6 from '../assets/photo-6.jpg';
-import photo7 from '../assets/photo-7.jpg';
-import photo8 from '../assets/photo-8.jpg';
-import photo9 from '../assets/photo-9.jpg';
-import photo10 from '../assets/photo-10.jpg';
+import { useState } from 'react';
+import { X } from 'lucide-react';
 
-const images = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10];
+function GalleryComponts() {
+  const [expandedIndex, setExpandedIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState("");
 
-const GalleryComponent = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const panels = [
+    { image: "https://lumea.in/belly6/assets/images/gallery/grid2/pic1.jpg" },
+    { image: "https://lumea.in/belly6/assets/images/gallery/grid2/pic2.jpg" },
+    { image: "https://lumea.in/belly6/assets/images/gallery/grid2/pic3.jpg" },
+    { image: "https://lumea.in/belly6/assets/images/gallery/grid2/pic4.jpg" },
+    { image: "https://lumea.in/belly6/assets/images/gallery/grid2/pic5.jpg" },
+    { image: "https://lumea.in/belly6/assets/images/gallery/grid2/pic6.jpg" },
+    { image: "https://lumea.in/belly6/assets/images/gallery/grid2/pic7.jpg" },  
+  ];
 
-  const openImage = (image) => setSelectedImage(image);
-  const closeImage = () => setSelectedImage(null);
+  const handleClick = (index) => {
+    if (window.innerWidth < 768) {
+      setModalImage(panels[index].image);
+      setIsModalOpen(true);
+    } else {
+      setExpandedIndex(index);
+    }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalImage("");
+  };
 
   return (
-    <div className="bg-black py-16 px-6 md:px-16 lg:px-32 text-white">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center text-yellow-400 mb-10">Gallery Highlights</h2>
+    <main className="relative w-full min-h-screen bg-black text-white overflow-hidden">
+      {/* Fullscreen blurred background */}
+      <div
+        className="absolute inset-0 bg-cover bg-no-repeat bg-center blur-sm brightness-50 z-0 transition-all duration-500"
+        style={{ backgroundImage: `url(${panels[expandedIndex].image})` }}
+      ></div>
 
-      <div className="grid  sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {images.slice(0, 6).map((img, i) => (
-          <img
-            key={i}
-            src={img}
-            alt={`gallery-${i}`}
-            className="cursor-pointer rounded-lg hover:scale-105 transition-transform duration-300 h-64 w-100" 
-            onClick={() => openImage(img)}
-            
-          />
-        ))}
+      {/* Overlay content */}
+      <div className="relative z-10 px-4 pt-16 pb-8 flex flex-col items-center">
+        {/* Heading */}
+        <div className="text-center mb-6 w-full">
+          <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400 mb-2">
+            Our Gallery
+          </h2>
+          <p className="text-sm sm:text-base text-white max-w-md mx-auto">
+            Where dedication meets transformation — swipe through the grind!
+          </p>
+        </div>
+
+        {/* Gallery */}
+        <div className="w-full max-w-7xl flex flex-col sm:flex-row items-center justify-center sm:h-[80vh] gap-4">
+          {/* Desktop view */}
+          <div className="hidden sm:flex w-full h-full gap-2 items-center justify-center px-4">
+            {panels.map((panel, index) => (
+              <div
+                key={index}
+                onClick={() => handleClick(index)}
+                className={`h-full rounded-2xl cursor-pointer overflow-hidden bg-white transition-all duration-500 ease-in-out ${
+                  expandedIndex === index ? 'w-[60%]' : 'w-[10%] hover:bg-gray-200'
+                }`}
+              >
+                <img src={panel.image} alt="" className="w-full h-full object-cover object-top" />
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile view */}
+          <div className="sm:hidden grid grid-cols-2 gap-3 w-full px-2">
+            {panels.map((panel, index) => (
+              <img
+                key={index}
+                src={panel.image}
+                onClick={() => handleClick(index)}
+                className="rounded-lg object-cover w-full h-44 cursor-pointer border-2 border-yellow-400"
+                alt=""
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* View More Button */}
+        <div className="mt-8">
+          <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition">
+            View More
+          </button>
+        </div>
       </div>
 
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-          onClick={closeImage}
-        >
-          <div className="relative" onClick={(e) => e.stopPropagation()}>
-            <img src={selectedImage} alt="selected" className="max-w-full max-h-screen rounded-lg shadow-xl" />
-            <button
-              className="absolute top-2 right-2 bg-yellow-400 text-black px-3 py-1 rounded-full text-sm hover:bg-yellow-500"
-              onClick={closeImage}
-            >
-              ✕ Close
+      {/* Modal for mobile */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50">
+          <div className="relative w-11/12 max-w-md bg-black p-4 rounded-lg">
+            <button onClick={closeModal} className="absolute top-2 right-2 text-white">
+              <X size={24} />
             </button>
+            <img src={modalImage} alt="Enlarged" className="w-full h-auto rounded-lg" />
           </div>
         </div>
       )}
-
-      <div className="text-center mt-10">
-        <a
-          href="/gallery"
-          className="inline-block bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition"
-        >
-          View Full Gallery
-        </a>
-      </div>
-
-      {/* <div className="mt-16">
-        <h3 className="text-2xl font-bold text-center mb-6 text-yellow-400">Our Clients on Instagram</h3>
-       
-        <div className="flex flex-col md:flex-row justify-center items-center gap-8 ">
-            <div className="w-full md:w-[340px] h-[600px] overflow-hidden rounded-xl relative group">
-                <iframe
-                className="w-full h-full group-hover:scale-105 transition-transform duration-300"
-                src="https://www.instagram.com/reel/Cqxk0oUuGn3/embed"
-                allow="autoplay; encrypted-media"
-                frameBorder="0"
-                ></iframe>
-            </div>
-
-            <div className="w-full md:w-[340px] h-[600px] overflow-hidden rounded-xl relative group">
-                <iframe
-                className="w-full h-full group-hover:scale-105 transition-transform duration-300"
-                src="https://www.instagram.com/reel/Cqxk0oUuGn3/embed"
-                allow="autoplay; encrypted-media"
-                frameBorder="0"
-                ></iframe>
-            </div>
-
-            <div className="w-full md:w-[340px] h-[600px] overflow-hidden rounded-xl relative group">
-                <iframe
-                className="w-full h-full group-hover:scale-105 transition-transform duration-300"
-                src="https://www.instagram.com/reel/Cqxk0oUuGn3/embed"
-                allow="autoplay; encrypted-media"
-                frameBorder="0"
-                ></iframe>
-            </div>
-  
-        </div> */}
-
-      {/* </div> */}
-    </div>
+    </main>
   );
-};
+}
 
-export default GalleryComponent;
+export default GalleryComponts;
