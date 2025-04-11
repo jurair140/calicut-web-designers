@@ -26,8 +26,8 @@ const NavBar = () => {
         />
         <ul className='hidden md:flex gap-7 text-white font-medium'>
           <Link to='/'><li className='hover:text-yellow-400'>Home</li></Link>
-          <Link to='/'><li className='hover:text-yellow-400'>About Us</li></Link>
-          <Link to='/'><li className='hover:text-yellow-400'>Gallery</li></Link>
+          <Link to='/aboutus'><li className='hover:text-yellow-400'>About Us</li></Link>
+          <Link to='/gallery'><li className='hover:text-yellow-400'>Gallery</li></Link>
           <Link to='/'><li className='hover:text-yellow-400'>Fecilities</li></Link>
           <Link to='/'><li className='hover:text-yellow-400'>Testimonials</li></Link>
           <Link to='/'><li className='hover:text-yellow-400'>Contact Us</li></Link>

@@ -1,107 +1,136 @@
-import React from 'react';
+// src/pages/AboutUs.jsx
+
+import React, { useEffect, useState } from "react";
 import NavBar from '../components/NavBar';
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
-import { motion } from 'framer-motion';
+import About from '../components/About';
+import photoHeader from '../assets/photo-1.jpg';
 
-const AboutPage = () => {
+const AboutUs = () => {
+  const [counts, setCounts] = useState({ members: 0, coaches: 0, programs: 0 });
+
+  useEffect(() => {
+    const endValues = { members: 872, coaches: 120, programs: 100 };
+    const duration = 1500;
+    const steps = 30;
+    const interval = duration / steps;
+
+    let step = 0;
+    const counter = setInterval(() => {
+      step++;
+      setCounts({
+        members: Math.min(Math.floor((endValues.members / steps) * step), endValues.members),
+        coaches: Math.min(Math.floor((endValues.coaches / steps) * step), endValues.coaches),
+        programs: Math.min(Math.floor((endValues.programs / steps) * step), endValues.programs),
+      });
+      if (step >= steps) clearInterval(counter);
+    }, interval);
+  }, []);
+
   return (
-    <div>
+    <div className="bg-black text-white">
+      {/* Navbar */}
       <NavBar />
-      <div className='flex flex-col items-center container mx-auto p-10 md:px-32 w-full bg-gray-100' id='About'>
-        <h1 className='text-3xl sm:text-4xl font-bold mb-4 text-center'>
-          About <span className='underline decoration-2 font-light'>Our Company</span>
-        </h1>
-        <p className='text-gray-500 max-w-lg text-center mb-10'>
-          Leading Website Development Company
-        </p>
 
-        <div className="flex flex-col lg:flex-row items-center gap-10 px-6 sm:px-12 md:px-20 lg:px-32">
-              <img
-                src="https://calicutwebdesigners.com/site_assets/img/about/about-v02.png"
-                className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[60%] lg:max-w-[45%] xl:max-w-[40%] rounded-lg shadow-lg"
-                alt="About Us"
-              />
-
-              <motion.div
-                initial={{ opacity: 0, x: 200 }}
-                transition={{ duration: 1 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center lg:items-start text-gray-600 text-center lg:text-left"
-              >
-                <div className="grid grid-cols-2 gap-6 sm:gap-8 w-full">
-                  {[
-                    { number: "1000+", label: "Happy Clients" },
-                    { number: "25K+", label: "Completed Projects" },
-                    { number: "10K+", label: "Service Providing" },
-                    { number: "100+", label: "Experts Support" },
-                  ].map((item, index) => (
-                    <div key={index} className="text-center lg:text-left">
-                      <p className="text-3xl sm:text-4xl font-medium text-gray-800">{item.number}</p>
-                      <p className="text-sm sm:text-base">{item.label}</p>
-                    </div>
-                  ))}
-                </div>
-                <p className="mt-6 max-w-lg text-center lg:text-left leading-relaxed">
-                  Welcome to Calicut Web Designers, where innovation meets excellence in web development.
-                  Our mission is to deliver top-notch website solutions tailored to your business needs.
-                </p>
-              </motion.div>
-            </div>
-
-      </div>
-
-      <div className='my-20 w-full px-5 md:px-20'>
-        <h4 className='text-center text-3xl md:text-4xl font-bold mb-10'>Stages of Development Process</h4>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-          {[   
-            { title: 'Discussion', text: 'Requirement Analysis and Concept Development. The process of application development starts with requirement analysis. Entire features will be documented and a feasibility study will be carried out.' },
-            { title: 'Designing', text: 'Wireframe Modelling and Prototype Design. Wireframes are used for the visual representation of the application. Then it will be converted into a prototype for building an interactive experience.' },
-            { title: 'Development', text: 'Front end Designing and Application Development. Front-end design includes User Interface Designing and User Experience Designing. Both of these are essential for web and mobile applications.' },
-            { title: 'Application Testing', text: 'After development, testing will be carried out to evaluate its performance. The application will be hosted on servers after testing.' },
-            { title: 'Go Live', text: 'The final step involves deploying the application on live servers. Continuous monitoring and maintenance ensure smooth functionality after launch.' },
-          ].map((item, index) => (
-            <div key={index} className='relative p-6 border border-gray-300 shadow-lg transition-all duration-300 hover:scale-105 hover:text-blue-700 group'>
-              <h2 className='text-xl font-semibold text-center'>{item.title}</h2>
-              <p className='absolute left-0 bottom-full w-full bg-white p-4 text-gray-600 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 z-10'>
-                {item.text}
-              </p>
-            </div>
-          ))}
+      {/* Header Banner */}
+      <div className="relative h-64 md:h-full w-full overflow-hidden">
+        <img
+          src={photoHeader}
+          alt="About Us Banner"
+          className="w-full  md:h-[500px] opacity-80"
+        />
+        <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+          <h1 className="text-3xl md:text-5xl font-bold text-yellow-400">
+            About Us
+          </h1>
         </div>
       </div>
 
-      <div className='my-20 w-full px-5 md:px-20'>
-        <h4 className='text-center text-3xl md:text-4xl font-bold mb-10'>Meet Our Creative Staff</h4>
-        <motion.div
-          initial={{ opacity: 0, x: -200 }}
-          transition={{ duration: 1 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 justify-items-center'
-        >
+      {/* About Section */}
+      <About />
+
+      {/* Founder Section */}
+      <div className="bg-[#1c1c1c] text-white px-6 py-20 md:px-16 lg:px-32">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* Image with intersecting badge */}
+          <div className="relative w-fit mx-auto">
+            <img
+              src="https://lumea.in/belly6/assets/images/team/team-7.png"
+              alt="Rohit Thayyil"
+              className="w-72 h-auto object-cover rounded-lg shadow-lg border-4 border-yellow-400"
+            />
+            <div className="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-yellow-400 px-6 py-2 rounded-md text-black text-center shadow-md">
+              <h2 className="text-lg font-bold leading-tight">Rohit Thayyil</h2>
+              <p className="text-xs font-semibold -mt-1">Founder</p>
+            </div>
+          </div>
+
+          {/* Info */}
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              They Are Always Best
+            </h3>
+            <p className="italic mb-4">
+              Start your training with our Professional Trainers
+            </p>
+            <p className="text-gray-300 mb-4 leading-relaxed">
+              Which is why we are constantly investing in the very best equipment the fitness industry has to offer and training for all of our team to guarantee that you achieve your fitness goals. Want to be in shape for a special event? Then working with our handpicked personal trainers will guarantee you achieve your goal by using their vast knowledge of what works for your aims and goals. But be warned — they want you to win as much as you do, so they’ll push you that extra step beyond where you normally quit, so that when the day comes, you know you’re going to feel good and look great!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats Banner */}
+      <div className="bg-yellow-400 text-black text-center py-10 px-4 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div>
+          <h4 className="text-4xl font-extrabold">{counts.members}+</h4>
+          <p className="text-sm font-semibold mt-1">Members</p>
+        </div>
+        <div>
+          <h4 className="text-4xl font-extrabold">{counts.coaches}+</h4>
+          <p className="text-sm font-semibold mt-1">Total Coach</p>
+        </div>
+        <div>
+          <h4 className="text-4xl font-extrabold">{counts.programs}+</h4>
+          <p className="text-sm font-semibold mt-1">Exercises Program</p>
+        </div>
+      </div>
+
+      {/* New Feature Cards Section */}
+      <div className="bg-[#111] text-white px-6 py-10 md:px-16 lg:px-32 lg:py-12 border-t border-yellow-400">
+        <h2 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-10 text-center">
+          What Makes Us Different
+        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[
-            { name: 'Esther Howard', role: 'CTO & Founder', img: 'https://calicutwebdesigners.com/site_assets/img/team/rd1.png' },
-            { name: 'Darlene Robertson', role: 'UI/UX Designer', img: 'https://calicutwebdesigners.com/site_assets/img/team/rd2.png' },
-            { name: 'Ralph Edwards', role: 'Software Tester', img: 'https://calicutwebdesigners.com/site_assets/img/team/rd3.png' },
-            { name: 'Ronald Richards', role: 'Team Leader', img: 'https://calicutwebdesigners.com/site_assets/img/team/rd4.png' },
-          ].map((staff, index) => (
-            <div key={index} className='text-center'>
-              <img src={staff.img} alt={staff.name} className='rounded-lg shadow-lg' />
-              <h2 className='text-xl font-bold mt-3'>{staff.name}</h2>
-              <p className='font-semibold'>{staff.role}</p>
-              <div className='flex gap-5 mt-4 justify-center'>
-                <a href='#' className='hover:text-blue-400 transition'><Facebook /></a>
-                <a href='#' className='hover:text-blue-300 transition'><Twitter /></a>
-                <a href='#' className='hover:text-pink-400 transition'><Instagram /></a>
-                <a href='#' className='hover:text-blue-600 transition'><Linkedin /></a>
-              </div>
+            {
+              icon: '💪',
+              title: 'Elite Training Methods',
+              description: 'We adopt scientifically proven workout strategies designed for quick results and long-term performance.',
+            },
+            {
+              icon: '🧠',
+              title: 'Mind-Body Focus',
+              description: 'We help our members focus not just on muscle, but mental discipline and stress relief too.',
+            },
+            {
+              icon: '⚙️',
+              title: 'Smart Equipment',
+              description: 'Modern, cutting-edge machines that track your workout and maximize every move.',
+            },
+          ].map((feature, idx) => (
+            <div
+              key={idx}
+              className="bg-[#1c1c1c] p-5 rounded-xl shadow-md border border-yellow-600 hover:shadow-yellow-400 transition-shadow"
+            >
+              <div className="text-4xl mb-3">{feature.icon}</div>
+              <h4 className="text-lg font-bold text-yellow-400 mb-1">{feature.title}</h4>
+              <p className="text-gray-300 text-sm leading-relaxed">{feature.description}</p>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
 };
 
-export default AboutPage;
+export default AboutUs;
